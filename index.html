@@ -124,6 +124,7 @@
     transition:color .15s, background .15s, transform .15s;
   }
   nav.links a:hover{color:var(--verde-950);background:var(--girasol-500);transform:rotate(-2deg);}
+  nav.links a.active{color:var(--verde-950);background:var(--girasol-300);font-weight:600;}
   .nav-toggle{display:none;background:none;border:none;color:var(--crema);font-size:22px;cursor:pointer;}
   @media(max-width:900px){
     nav.links{
@@ -267,6 +268,27 @@
   .pillar h4{font-size:15.5px;font-family:'Fredoka',sans-serif;font-weight:600;}
   .pillar p{font-size:14px;color:var(--tinta-suave);margin-top:8px;}
 
+  .milestones{
+    margin-top:26px;padding-left:2px;border-left:3px dashed var(--verde-600);
+    display:flex;flex-direction:column;gap:20px;
+  }
+  .milestone{display:flex;gap:14px;align-items:flex-start;margin-left:-2px;padding-left:20px;position:relative;}
+  .ms-age{
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;
+    background:var(--girasol-500);border:2.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:var(--verde-950);
+    box-shadow:3px 3px 0 var(--ink);
+    margin-left:-39px;
+  }
+  .milestone h5{font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;color:var(--tinta);}
+  .milestone p{font-size:13.5px;color:var(--tinta-suave);margin-top:4px;line-height:1.5;}
+  @media(max-width:520px){
+    .milestones{border-left:none;padding-left:0;}
+    .milestone{padding-left:0;}
+    .ms-age{margin-left:0;}
+  }
+
   .portrait-frame{
     border:3px solid var(--ink);border-radius:24px 24px 24px 4px;padding:8px;
     background:linear-gradient(155deg, var(--girasol-500), var(--lime-500) 55%, var(--verde-600));
@@ -281,11 +303,17 @@
   }
   .portrait-inner{
     background:var(--verde-950);border-radius:18px 18px 18px 2px;
-    aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:18px;padding:32px;text-align:center;
+    aspect-ratio:4/5;position:relative;overflow:hidden;
   }
-  .portrait-icon{font-size:88px;filter:drop-shadow(0 6px 0 rgba(0,0,0,0.3));}
-  .portrait-quote{font-family:'Fredoka',sans-serif;font-weight:500;color:var(--girasol-300);font-size:17px;max-width:22ch;}
+  .portrait-inner img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+  }
+  .portrait-caption{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(0deg, rgba(12,36,23,0.92), rgba(12,36,23,0.55) 65%, transparent);
+    padding:38px 22px 18px;text-align:center;
+  }
+  .portrait-quote{font-family:'Fredoka',sans-serif;font-weight:500;color:var(--girasol-300);font-size:16px;max-width:24ch;margin:0 auto;}
 
   /* ---------- ROUTE / TIMELINE ---------- */
   .route{background:var(--verde-950);color:var(--crema);position:relative;overflow:hidden;}
@@ -534,6 +562,38 @@
 
   ::selection{background:var(--girasol-300);color:var(--verde-950);}
 
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex;flex-direction:column;gap:14px;max-width:840px;}
+  details.faq-item{
+    background:#fff;border:2.5px solid var(--ink);border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+  }
+  details.faq-item summary{
+    list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:15.5px;color:var(--tinta);
+  }
+  details.faq-item summary::-webkit-details-marker{display:none;}
+  details.faq-item .chev{flex-shrink:0;color:var(--verde-700);transition:transform .2s;}
+  details.faq-item[open] .chev{transform:rotate(180deg);}
+  details.faq-item .faq-body{padding:0 22px 20px;}
+  details.faq-item .faq-body p{font-size:14.5px;color:var(--tinta-suave);line-height:1.65;}
+
+  /* ---------- BACK TO TOP ---------- */
+  .back-to-top{
+    position:fixed;right:22px;bottom:22px;z-index:60;
+    width:50px;height:50px;border-radius:50%;
+    background:var(--girasol-500);color:var(--verde-950);
+    border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+    font-size:20px;font-weight:700;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transform:translateY(14px) scale(0.9);pointer-events:none;
+    transition:opacity .22s ease, transform .22s ease, box-shadow .18s ease;
+  }
+  .back-to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .back-to-top:hover{transform:translate(-2px,-2px) rotate(-6deg);box-shadow:6px 6px 0 var(--ink);}
+  .back-to-top:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+  @media(max-width:600px){.back-to-top{width:44px;height:44px;right:16px;bottom:16px;font-size:18px;}}
+
   /* ---------- FRIENDLY MOTION ---------- */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
@@ -574,9 +634,12 @@
       <a href="#congreso">Congreso</a>
       <a href="#presidencia">Presidencia</a>
       <a href="#documentos">Documentos</a>
+      <a href="#preguntas">Preguntas</a>
     </nav>
   </div>
 </header>
+
+<button id="backToTop" class="back-to-top" aria-label="Volver arriba" title="Volver arriba">↑</button>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -642,6 +705,19 @@
       <div>
         <p class="big">Nací en Bogotá y crecí entre Buenaventura, Puerto Leguízamo y Cali. Esa ruta me enseñó, antes que cualquier libro de ciencia política, lo distinta que es la Colombia que gobiernan los indicadores nacionales de la que se vive en cada territorio.</p>
         <p>Soy ingeniera de sistemas egresada de la Universidad Santiago de Cali. Empecé mi carrera y ambición política desde los 15 años en el activismo de juventudes, con dos ideas que no me han abandonado desde entonces: que la unión hace la fuerza (trabajar con quienes piensan distinto, de izquierda o de derecha, garantiza mejor gobernanza) y que la política se puede hacer mejor: sin mentir, sin esconder, como debe ser.</p>
+
+        <div class="milestones">
+          <div class="milestone">
+            <span class="ms-age">16</span>
+            <div><h5>Creadora del Congreso Escolar Unicameral</h5><p>Diseñé y lideré la primera simulación legislativa escolar de mi colegio: el ensayo más temprano de lo que hoy es esta hoja de ruta.</p></div>
+          </div>
+          <div class="milestone">
+            <span class="ms-age">19</span>
+            <div><h5>Consejera de Juventudes</h5><p>Mi primer cargo de representación formal, el puente entre el activismo escolar y la militancia partidista.</p></div>
+          </div>
+        </div>
+        <p>De ahí en adelante, la convicción se volvió militancia formal: primero en el activismo de juventudes, después en la Alianza Verde, y en 2031, en una curul.</p>
+
         <p>Milito en la Alianza Verde. No porque el girasol resuelva solo los problemas de Cali o de Colombia, sino porque comparto su convicción de que la vida, los derechos y el territorio no son temas de nicho: son la base de cualquier gobierno serio.</p>
         <div class="pillar-row">
           <div class="pillar"><h4>La unión hace la fuerza</h4><p>Gobernar con los diferentes (izquierda, derecha, centro) cuando el criterio técnico y la necesidad de la gente lo justifican.</p></div>
@@ -651,8 +727,10 @@
       <div>
         <div class="portrait-frame">
           <div class="portrait-inner">
-            <span class="portrait-icon">🌻</span>
-            <p class="portrait-quote">"Sin mentir, sin esconder, como debe ser."</p>
+            <img src="assets/iris-maia-foto.png" alt="Iris Maia Duque">
+            <div class="portrait-caption">
+              <p class="portrait-quote">"Sin mentir, sin esconder, como debe ser."</p>
+            </div>
           </div>
         </div>
         <a class="btn-doc" style="margin-top:18px;width:100%;justify-content:center;" href="#ruta">Ver toda la ruta →</a>
@@ -1084,6 +1162,43 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="preguntas" style="background:var(--crema);">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Antes de que preguntes</p>
+      <h2>Preguntas frecuentes</h2>
+      <p class="sub">Una hoja de ruta a 19 años es poco común. Vale la pena explicar qué es esta página y qué no es.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary><span>¿Por qué planeo hasta 2050? Nadie puede prometer tanto.</span><span class="chev">▾</span></summary>
+        <div class="faq-body">
+          <p>Porque no quiero improvisar mi carrera política cargo por cargo. Esta ruta es mi declaración de intención y de secuencia: primero control político desde una curul, después ejecución desde una alcaldía, después legislación nacional, después un plan de gobierno para el país. Cada etapa exige lo que aprendí en la anterior. No puedo garantizar el resultado de una elección, pero sí puedo decir, con honestidad, en qué orden pretendo intentarlo y por qué.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Esto es una promesa literal o un ejercicio especulativo?</span><span class="chev">▾</span></summary>
+        <div class="faq-body">
+          <p>Es mi hoja de ruta declarada, no una promesa de resultado. No puedo prometer ganar cinco elecciones entre 2031 y 2050; eso lo decide la gente que vota, no yo. Lo que sí puedo prometer es qué haría en cada cargo si llego a ocuparlo, y en qué orden pienso buscarlos. Los planes de gobierno de 2035 y 2050 son documentos técnicos reales, con fuentes de financiación y marco legal; el calendario que los conecta es la aspiración que los ordena.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Qué pasa si una etapa no se gana?</span><span class="chev">▾</span></summary>
+        <div class="faq-body">
+          <p>Ajusto la ruta, no la abandono. Perder una elección no invalida el trabajo que hice en la anterior ni mi compromiso con la siguiente; una candidatura política real rara vez avanza en línea recta. Esta página describe mi plan A: la secuencia que considero más responsable para prepararme antes de pedir cada nuevo mandato, no una garantía de calendario electoral.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Por qué tantos detalles (nombres, cargos, cifras) si faltan años para 2035?</span><span class="chev">▾</span></summary>
+        <div class="faq-body">
+          <p>Porque la alternativa —quedarme en generalidades— es más fácil de prometer y más fácil de incumplir. Nombrar personas, competencias y fuentes de financiación obliga a que cada propuesta pueda revisarse, criticarse y exigírseme. Algunos nombres de la coalición de 2035 podrán cambiar en el camino; mi estándar de detalle no debería.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -1134,7 +1249,7 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!prefersReduced && 'IntersectionObserver' in window){
     const targets = document.querySelectorAll(
-      '.commit-card, .eje, .cap, .pillar, .role-card, .principle, .fact-card, .hero-card, .bloom-node, .fin-strip, .bloom-final, details.party, details.cat'
+      '.commit-card, .eje, .cap, .pillar, .role-card, .principle, .fact-card, .hero-card, .bloom-node, .fin-strip, .bloom-final, details.party, details.cat, details.faq-item, .milestone'
     );
     targets.forEach((el,i) => {
       el.classList.add('reveal');
@@ -1178,6 +1293,41 @@
     } else {
       counters.forEach(c => c.textContent = c.getAttribute('data-count'));
     }
+  }
+
+  // Scrollspy: highlight the nav link for the section in view
+  const navAnchors = Array.from(links.querySelectorAll('a[href^="#"]'));
+  const spySections = navAnchors
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  if(spySections.length && 'IntersectionObserver' in window){
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = '#' + entry.target.id;
+        const link = navAnchors.find(a => a.getAttribute('href') === id);
+        if(!link) return;
+        if(entry.isIntersecting) {
+          navAnchors.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    spySections.forEach(sec => spy.observe(sec));
+  }
+
+  // Back to top: floating button appears after scrolling past the hero
+  const backToTop = document.getElementById('backToTop');
+  const heroEl = document.getElementById('top');
+  if(backToTop){
+    const toggleBackToTop = () => {
+      const showAfter = heroEl ? heroEl.offsetHeight * 0.6 : 400;
+      backToTop.classList.toggle('show', window.scrollY > showAfter);
+    };
+    window.addEventListener('scroll', toggleBackToTop, {passive:true});
+    toggleBackToTop();
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior: prefersReduced ? 'auto' : 'smooth'});
+    });
   }
 </script>
 </body>
