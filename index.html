@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iris Maia Duque · Alianza Verde 🌻</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-950:#0c2417;
+    --verde-900:#123420;
+    --verde-800:#154a2c;
+    --verde-700:#146638;
+    --verde-600:#00843e;
+    --verde-500:#2e9c5c;
+    --verde-300:#a3d1af;
+    --girasol-600:#d99e00;
+    --girasol-500:#f9bf0e;
+    --girasol-300:#ffdf7a;
+    --lime-500:#94aa1f;
+    --lime-600:#7c8f1a;
+    --naranja-500:#f5820a;
+    --naranja-600:#d96900;
+    --crema:#fbf4e3;
+    --crema-2:#f4ecd2;
+    --tinta:#152018;
+    --tinta-suave:#46543f;
+    --linea:#e2d6ac;
+    --ink:#16321f;
+    --u-color:#e0602c;
+    --verdep-color:#00843e;
+    --con-color:#2453b0;
+    --cr-color:#d1272e;
+    --asi-color:#7a4fd1;
+    --ox-color:#1094a8;
+    --maxw:1180px;
+    --radius:20px;
+    --shadow-sm:0 3px 0 rgba(21,32,24,0.9);
+    --shadow-md:5px 5px 0 var(--ink);
+    --shadow-lg:7px 7px 0 var(--ink);
+    --shadow-glow:0 14px 30px rgba(249,191,14,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--crema);
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(0,132,62,0.05), transparent 40%),
+      radial-gradient(circle at 92% 88%, rgba(249,191,14,0.08), transparent 40%);
+    color:var(--tinta);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fredoka',system-ui,sans-serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  p{margin:0;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---- eyebrow / sticker label ---- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:'Fredoka',sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--verde-950);
+    background:var(--girasol-500);
+    border:2px solid var(--ink);
+    padding:5px 13px 6px;
+    border-radius:999px;
+    transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .eyebrow.on-dark{color:var(--verde-950);background:var(--girasol-300);}
+  section{padding:100px 0;}
+  @media(max-width:720px){ section{padding:68px 0;} }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(12,36,23,0.95);
+    border-bottom:3px solid var(--girasol-500);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:0 28px;
+    height:68px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+    color:var(--crema);text-decoration:none;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;
+  }
+  .logo-chip{display:inline-flex;align-items:center;}
+  .brand img{height:34px;width:auto;display:block;transition:transform .25s ease;}
+  .brand:hover img{transform:rotate(-6deg) scale(1.06);}
+  .nav-badge{
+    font-family:'Fredoka',sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:0.02em;color:var(--verde-950);background:var(--girasol-500);
+    border:2px solid var(--ink);
+    padding:5px 11px;border-radius:999px;text-transform:uppercase;white-space:nowrap;
+    transform:rotate(-3deg);
+  }
+  @media(max-width:560px){.nav-badge{display:none;}}
+  nav.links{display:flex;gap:6px;}
+  nav.links a{
+    color:var(--verde-300);text-decoration:none;font-size:13px;
+    font-family:'Fredoka',sans-serif;font-weight:500;letter-spacing:0.01em;
+    padding:7px 13px;border-radius:999px;
+    transition:color .15s, background .15s, transform .15s;
+  }
+  nav.links a:hover{color:var(--verde-950);background:var(--girasol-500);transform:rotate(-2deg);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--crema);font-size:22px;cursor:pointer;}
+  @media(max-width:900px){
+    nav.links{
+      position:fixed;top:68px;left:0;right:0;
+      background:var(--verde-950);
+      flex-direction:column;gap:0;
+      padding:8px 28px 20px;
+      transform:translateY(-8px);
+      opacity:0;pointer-events:none;
+      transition:opacity .18s, transform .18s;
+      border-bottom:3px solid var(--girasol-500);
+    }
+    nav.links.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+    nav.links a{padding:12px 8px;border-bottom:1px solid rgba(255,255,255,0.08);border-radius:0;}
+    nav.links a:hover{transform:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 800px 460px at 85% -8%, rgba(249,191,14,0.16), transparent 60%),
+      linear-gradient(180deg, var(--verde-950), var(--verde-900) 65%, var(--verde-800));
+    color:var(--crema);
+    padding:80px 0 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"🌻";font-size:120px;position:absolute;right:-30px;top:-40px;opacity:0.08;
+    transform:rotate(12deg);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;position:relative;z-index:2;}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(42px,6.4vw,70px);line-height:0.98;color:#fff;font-weight:600;}
+  .hero h1 em{font-style:normal;color:var(--girasol-500);position:relative;}
+  .hero .lede{font-size:18px;color:var(--verde-300);margin-top:20px;max-width:52ch;line-height:1.6;}
+  .hero .tagline{
+    margin-top:24px;font-family:'Fredoka',sans-serif;font-weight:500;
+    font-size:19px;color:var(--verde-950);max-width:44ch;
+    background:var(--girasol-300);border:2.5px solid var(--ink);
+    padding:14px 18px;border-radius:16px 4px 16px 4px;
+    transform:rotate(-1deg);box-shadow:var(--shadow-md);
+  }
+  .cta-row{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:999px;font-weight:600;font-size:15px;
+    font-family:'Fredoka',sans-serif;
+    text-decoration:none;border:2.5px solid var(--ink);
+    transition:transform .14s ease, box-shadow .14s ease, background .14s ease;
+  }
+  .btn-primary{background:var(--girasol-500);color:var(--verde-950);box-shadow:var(--shadow-md);}
+  .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);background:var(--girasol-300);}
+  .btn-primary:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+  .btn-ghost{border:2.5px solid rgba(255,255,255,0.5);color:#fff;background:transparent;}
+  .btn-ghost:hover{border-color:var(--girasol-500);color:var(--girasol-300);transform:translate(-2px,-2px);background:rgba(255,255,255,0.06);}
+  .btn-ghost:active{transform:translate(1px,1px);}
+
+  .hero-card{
+    background:rgba(255,255,255,0.06);
+    border:2.5px solid rgba(255,255,255,0.5);
+    border-radius:var(--radius);
+    padding:26px 26px 22px;
+    transform:rotate(1deg);
+  }
+  .hero-card .hc-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;color:var(--girasol-300);letter-spacing:0.04em;text-transform:uppercase;}
+  .hero-stat-list{display:flex;flex-direction:column;gap:16px;margin-top:16px;}
+  .hero-stat{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed rgba(255,255,255,0.25);padding-top:14px;}
+  .hero-stat:first-child{border-top:none;padding-top:0;}
+  .hero-stat .yr{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--girasol-500);font-size:16px;}
+  .hero-stat .role{font-size:14px;color:var(--crema);text-align:right;}
+
+  .doc-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+  .btn-doc{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:11px 18px;border-radius:999px;font-weight:600;font-size:14px;
+    font-family:'Fredoka',sans-serif;
+    text-decoration:none;background:#fff;color:var(--verde-700);
+    border:2.5px solid var(--ink);
+    box-shadow:var(--shadow-md);
+    transition:transform .14s ease, box-shadow .14s ease, background .14s ease, color .14s ease;
+  }
+  .btn-doc:hover{background:var(--verde-600);color:#fff;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+  .btn-doc:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+  .btn-doc .doc-ic{font-size:16px;line-height:1;}
+  .btn-doc .doc-meta{font-family:'Fredoka',sans-serif;font-size:10.5px;font-weight:600;opacity:.75;text-transform:uppercase;letter-spacing:.03em;}
+  .btn-doc-dark{background:rgba(255,255,255,0.08);color:#fff;border:2.5px solid rgba(255,255,255,0.5);box-shadow:none;}
+  .btn-doc-dark:hover{background:var(--girasol-500);border-color:var(--ink);color:var(--verde-950);box-shadow:5px 5px 0 rgba(0,0,0,0.35);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{max-width:760px;margin-bottom:48px;}
+  .sec-head h2{font-size:clamp(30px,4.4vw,46px);margin-top:14px;}
+  .sec-head .sub{margin-top:16px;color:var(--tinta-suave);font-size:16.5px;}
+  .on-dark .sub{color:var(--verde-300);}
+
+  /* ---------- EN CIFRAS ---------- */
+  .cifras{
+    background:var(--verde-600);
+    background-image:repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0 14px, transparent 14px 28px);
+    color:#fff;padding:60px 0;
+    border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+  }
+  .cifras-head{text-align:center;margin-bottom:36px;}
+  .cifras-head .eyebrow{background:#fff;}
+  .cifras-head h2{color:#fff;font-size:clamp(26px,3.6vw,36px);margin-top:10px;}
+  .cifras-row{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;text-align:center;}
+  @media(max-width:900px){.cifras-row{grid-template-columns:repeat(3,1fr);row-gap:28px;}}
+  @media(max-width:520px){.cifras-row{grid-template-columns:repeat(2,1fr);}}
+  .cifra{
+    background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.35);
+    border-radius:16px;padding:18px 10px;
+  }
+  .cifra .num{
+    font-family:'Fredoka',sans-serif;font-weight:600;color:var(--girasol-300);
+    font-size:clamp(32px,4vw,42px);line-height:1;display:block;
+  }
+  .cifra .lbl{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.02em;color:rgba(255,255,255,0.9);margin-top:9px;display:block;font-family:'Fredoka',sans-serif;}
+
+  /* ---------- BIO ---------- */
+  .bio{background:var(--crema);}
+  .bio-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start;}
+  @media(max-width:880px){.bio-grid{grid-template-columns:1fr;gap:34px;}}
+  .bio-route{
+    font-family:'Fredoka',sans-serif;font-size:13.5px;font-weight:500;
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--verde-700);
+    margin-bottom:20px;
+  }
+  .bio-route span.city{background:#fff;border:2px solid var(--ink);padding:5px 12px;border-radius:999px;}
+  .bio-route .arrow{color:var(--naranja-500);font-weight:700;}
+  .bio p.big{font-size:19px;line-height:1.65;color:var(--tinta);}
+  .bio p+p{margin-top:18px;}
+  .pillar-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+  @media(max-width:560px){.pillar-row{grid-template-columns:1fr;}}
+  .pillar{
+    background:#fff;border:2.5px solid var(--ink);border-radius:16px;padding:20px;
+    box-shadow:var(--shadow-md);
+  }
+  .pillar:nth-child(1){transform:rotate(-1.2deg);}
+  .pillar:nth-child(2){transform:rotate(1.2deg);}
+  .pillar h4{font-size:15.5px;font-family:'Fredoka',sans-serif;font-weight:600;}
+  .pillar p{font-size:14px;color:var(--tinta-suave);margin-top:8px;}
+
+  .portrait-frame{
+    border:3px solid var(--ink);border-radius:24px 24px 24px 4px;padding:8px;
+    background:linear-gradient(155deg, var(--girasol-500), var(--lime-500) 55%, var(--verde-600));
+    box-shadow:var(--shadow-lg);
+    transform:rotate(1.5deg);
+    position:relative;
+  }
+  .portrait-frame::before{
+    content:"";position:absolute;top:-16px;left:38%;width:90px;height:34px;
+    background:rgba(255,255,255,0.55);border:1.5px dashed rgba(21,32,24,0.4);
+    transform:rotate(-4deg);border-radius:2px;
+  }
+  .portrait-inner{
+    background:var(--verde-950);border-radius:18px 18px 18px 2px;
+    aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:18px;padding:32px;text-align:center;
+  }
+  .portrait-icon{font-size:88px;filter:drop-shadow(0 6px 0 rgba(0,0,0,0.3));}
+  .portrait-quote{font-family:'Fredoka',sans-serif;font-weight:500;color:var(--girasol-300);font-size:17px;max-width:22ch;}
+
+  /* ---------- ROUTE / TIMELINE ---------- */
+  .route{background:var(--verde-950);color:var(--crema);position:relative;overflow:hidden;}
+  .route .sec-head h2{color:#fff;}
+  .bloom-track{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:20px;
+  }
+  .bloom-track::before{
+    content:"";position:absolute;top:29px;left:6%;right:6%;height:4px;
+    background-image:linear-gradient(90deg, var(--verde-600) 0 12px, transparent 12px 20px);
+    background-size:20px 4px;
+    background-repeat:repeat-x;
+    opacity:0.8;
+  }
+  @media(max-width:900px){
+    .bloom-track{grid-template-columns:1fr;gap:0;}
+    .bloom-track::before{display:none;}
+  }
+  .bloom-node{position:relative;padding-top:0;display:flex;flex-direction:column;align-items:flex-start;}
+  @media(max-width:900px){
+    .bloom-node{flex-direction:row;gap:18px;padding:22px 0;border-bottom:2px dashed rgba(255,255,255,0.15);}
+  }
+  .bloom-dot{
+    width:60px;height:60px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;position:relative;z-index:2;flex-shrink:0;
+    border:3px solid var(--ink);
+    box-shadow:4px 4px 0 rgba(0,0,0,0.35);
+  }
+  .bloom-track a{text-decoration:none;color:inherit;display:block;padding-right:18px;}
+  @media(max-width:900px){ .bloom-track a{padding-right:0;} }
+  .stage-1 .bloom-dot{background:var(--verde-800);}
+  .stage-2 .bloom-dot{background:var(--verde-700);}
+  .stage-3 .bloom-dot{background:var(--lime-500);}
+  .stage-4 .bloom-dot{background:var(--girasol-600);}
+  .stage-5 .bloom-dot{background:var(--girasol-500);}
+  .bloom-node .yr{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--girasol-300);font-size:15px;margin-top:16px;display:block;}
+  .bloom-node h4{color:#fff;font-size:20px;margin-top:6px;}
+  .bloom-node p{color:var(--verde-300);font-size:13.5px;margin-top:8px;max-width:22ch;}
+  @media(max-width:900px){ .bloom-node .yr{margin-top:0;} .bloom-node p{max-width:34ch;} }
+
+  /* ---------- GENERIC CARD GRID ---------- */
+  .stage-block{scroll-margin-top:80px;}
+  .stage-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Fredoka',sans-serif;font-size:12.5px;font-weight:600;
+    background:#fff;border:2px solid var(--ink);color:var(--verde-700);
+    padding:6px 14px;border-radius:999px;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);
+  }
+
+  .commit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:960px){.commit-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.commit-grid{grid-template-columns:1fr;}}
+  .commit-card{
+    background:#fff;border:2.5px solid var(--ink);border-radius:18px;padding:24px;
+    display:flex;flex-direction:column;gap:12px;
+    box-shadow:var(--shadow-md);
+  }
+  .commit-card:nth-child(3n+1){transform:rotate(-0.8deg);}
+  .commit-card:nth-child(3n+2){transform:rotate(0.6deg);}
+  .commit-card:nth-child(3n+3){transform:rotate(-0.5deg);}
+  .commit-tag{
+    align-self:flex-start;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.02em;
+    font-family:'Fredoka',sans-serif;
+    background:var(--naranja-500);color:#fff;padding:5px 12px;border-radius:999px;
+    border:1.5px solid var(--ink);
+  }
+  .commit-num{
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;
+    color:var(--girasol-600);
+  }
+  .commit-card h4{font-family:'Fredoka',sans-serif;font-size:17px;font-weight:600;line-height:1.3;}
+  .commit-card .lbl{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--verde-600);margin-top:4px;font-family:'Inter';}
+  .commit-card p{font-size:14px;color:var(--tinta-suave);}
+
+  /* ---------- EJES GRID (2035) ---------- */
+  .plan-city{background:var(--crema-2);}
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px;}
+  @media(max-width:800px){.principles{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.principles{grid-template-columns:1fr;}}
+  .principle{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--tinta-suave);box-shadow:3px 3px 0 var(--ink);}
+  .principle b{display:block;color:var(--tinta);font-size:14.5px;margin-bottom:5px;font-family:'Fredoka',sans-serif;font-weight:600;}
+
+  .ejes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:980px){.ejes-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.ejes-grid{grid-template-columns:1fr;}}
+  .eje{
+    background:#fff;border:2px solid var(--ink);border-radius:14px;padding:18px;
+    position:relative;box-shadow:3px 3px 0 var(--ink);
+  }
+  .eje .n{
+    font-family:'Fredoka',sans-serif;font-weight:600;color:var(--girasol-600);font-size:23px;
+    display:block;margin-bottom:6px;
+  }
+  .eje h5{font-family:'Fredoka',sans-serif;font-size:14.5px;font-weight:600;line-height:1.3;}
+  .eje p{font-size:12.8px;color:var(--tinta-suave);margin-top:7px;}
+
+  .fin-strip{
+    margin-top:56px;background:var(--verde-900);color:var(--crema);border-radius:var(--radius);padding:32px;
+    border:2.5px solid var(--ink);
+  }
+  .fin-strip h4{color:#fff;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;}
+  .fin-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+  @media(max-width:760px){.fin-cols{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.fin-cols{grid-template-columns:1fr;}}
+  .fin-cols div{font-size:13px;color:var(--verde-300);border-top:1px dashed rgba(255,255,255,0.25);padding-top:10px;}
+
+  /* ---------- COALITION ---------- */
+  .coalition{background:var(--crema);}
+  .party-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;font-family:'Fredoka',sans-serif;padding:6px 13px;border-radius:999px;border:2px solid var(--ink);background:#fff;}
+  .chip .dot{width:9px;height:9px;border-radius:50%;}
+  details.party{
+    background:#fff;border:2.5px solid var(--ink);border-radius:16px;margin-bottom:14px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+  }
+  details.party summary{
+    list-style:none;cursor:pointer;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  details.party summary::-webkit-details-marker{display:none;}
+  .party-name{display:flex;align-items:center;gap:12px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16.5px;}
+  .party-name .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;border:1.5px solid var(--ink);}
+  .party-count{font-family:'Fredoka',sans-serif;font-size:12.5px;color:var(--tinta-suave);}
+  .chev{transition:transform .2s;color:var(--tinta-suave);font-size:13px;}
+  details.party[open] .chev{transform:rotate(180deg);}
+  .party-body{padding:0 24px 22px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:760px){.party-body{grid-template-columns:1fr;}}
+  .role-card{border:2px solid var(--linea);border-radius:12px;padding:16px;background:var(--crema);}
+  .role-card .entity{font-family:'Fredoka',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.03em;color:var(--verde-700);font-weight:600;}
+  .role-card .who{font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;margin-top:5px;}
+  .role-card .cred{font-size:12.5px;color:var(--tinta-suave);margin-top:5px;}
+  .role-card .eje-tag{
+    display:inline-block;margin-top:10px;font-size:11px;font-weight:600;font-family:'Fredoka',sans-serif;
+    background:var(--crema-2);border:1.5px solid var(--linea);padding:4px 9px;border-radius:999px;color:var(--verde-700);
+  }
+
+  /* ---------- CONGRESS AGENDA ---------- */
+  .agenda{background:var(--verde-950);color:var(--crema);}
+  .agenda .sec-head h2{color:#fff;}
+  .agenda .eyebrow{background:var(--girasol-300);}
+  .agenda-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(max-width:800px){.agenda-grid{grid-template-columns:1fr;}}
+  details.cat{
+    background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.25);border-radius:14px;overflow:hidden;
+  }
+  details.cat summary{
+    list-style:none;cursor:pointer;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:15.5px;color:#fff;
+  }
+  details.cat summary::-webkit-details-marker{display:none;}
+  details.cat .chev{color:var(--girasol-300);}
+  .cat-body{padding:0 20px 18px;}
+  .cat-body ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:9px;}
+  .cat-body li{font-size:13.8px;color:var(--verde-300);}
+  .cat-body li b{color:#fff;font-weight:600;}
+
+  .senate-note{
+    margin-top:28px;background:var(--girasol-500);border:2.5px solid var(--ink);
+    border-radius:16px;padding:26px 28px;display:flex;gap:18px;align-items:flex-start;
+    box-shadow:var(--shadow-md);
+  }
+  .senate-note .yr-badge{
+    font-family:'Fredoka',sans-serif;font-weight:600;color:#fff;
+    background:var(--verde-700);border:2px solid var(--ink);padding:8px 12px;border-radius:10px;font-size:13px;flex-shrink:0;
+  }
+  .senate-note p{font-size:14.5px;color:var(--verde-950);}
+  .senate-note p b{color:var(--verde-950);}
+
+  /* ---------- PRESIDENCY ---------- */
+  .presidency{background:var(--crema-2);}
+  .presidency .eyebrow{background:var(--naranja-500);color:#fff;}
+  .cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media(max-width:980px){.cap-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.cap-grid{grid-template-columns:1fr;}}
+  .cap{
+    background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px;box-shadow:3px 3px 0 var(--ink);
+  }
+  .cap .cn{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--girasol-600);font-size:12px;}
+  .cap h5{font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;margin-top:5px;line-height:1.3;}
+  .cap p{font-size:12.3px;color:var(--tinta-suave);margin-top:6px;}
+
+  .bloom-final{
+    margin-top:48px;text-align:center;background:var(--verde-950);color:#fff;border-radius:var(--radius);
+    padding:52px 28px;border:3px solid var(--ink);position:relative;
+  }
+  .bloom-final .icon{font-size:42px;}
+  .bloom-final h3{font-size:clamp(23px,3.2vw,32px);margin-top:16px;color:#fff;font-family:'Fredoka',sans-serif;}
+  .bloom-final p{color:var(--verde-300);margin-top:14px;max-width:60ch;margin-left:auto;margin-right:auto;font-size:15px;}
+
+  /* ---------- DOCUMENTOS ---------- */
+  .docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:700px){.docs-grid{grid-template-columns:1fr;}}
+  .doc-card{
+    background:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);padding:28px;
+    display:flex;flex-direction:column;gap:11px;align-items:flex-start;
+    box-shadow:var(--shadow-md);position:relative;
+  }
+  .doc-card:nth-child(1){transform:rotate(-1deg);}
+  .doc-card:nth-child(2){transform:rotate(1deg);}
+  .doc-card::before{
+    content:"";position:absolute;top:-14px;left:30px;width:70px;height:26px;
+    background:rgba(249,191,14,0.65);border:1.5px dashed var(--ink);transform:rotate(-3deg);
+  }
+  .doc-card-tag{font-family:'Fredoka',sans-serif;font-size:12px;font-weight:600;color:var(--verde-700);background:var(--crema-2);padding:5px 12px;border-radius:999px;border:1.5px solid var(--linea);}
+  .doc-card h4{font-size:19px;margin-top:4px;font-family:'Fredoka',sans-serif;font-weight:600;}
+  .doc-card p{font-size:14px;color:var(--tinta-suave);margin-bottom:6px;}
+
+  /* marquee transition strip */
+  .marquee-strip{
+    background:var(--girasol-500);color:var(--verde-950);
+    overflow:hidden;white-space:nowrap;padding:11px 0;
+    border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+  }
+  .marquee-track{display:inline-flex;animation:marquee 22s linear infinite;}
+  .marquee-track span{
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:13.5px;
+    letter-spacing:0.02em;text-transform:uppercase;padding-right:0;
+  }
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--verde-950);color:var(--verde-300);padding:56px 0 30px;border-top:3px solid var(--girasol-500);}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px;border-bottom:1px dashed rgba(255,255,255,0.2);padding-bottom:36px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:26px;}}
+  .foot-grid h5{color:#fff;font-family:'Fredoka',sans-serif;font-size:13.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:14px;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:14px;}
+  .foot-grid p{font-size:14px;line-height:1.6;}
+  .social-row{display:flex;gap:10px;margin-top:18px;}
+  .social-row a{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.3);
+    color:#fff;font-size:14px;font-weight:700;text-decoration:none;
+    transition:background .18s ease, transform .18s ease, color .18s ease;
+  }
+  .social-row a:hover{background:var(--girasol-500);border-color:var(--ink);color:var(--verde-950);transform:translateY(-3px) rotate(-6deg);}
+  .foot-brand{display:inline-flex;margin-bottom:12px;}
+  .foot-brand img{height:38px;width:auto;display:block;}
+  .foot-note{
+    margin-top:26px;font-size:12.5px;color:rgba(163,209,175,0.7);line-height:1.6;
+    padding-top:26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  }
+
+  ::selection{background:var(--girasol-300);color:var(--verde-950);}
+
+  /* ---------- FRIENDLY MOTION ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  .commit-card,.eje,.cap,.pillar,.role-card,.principle,.hero-card,.doc-card,.chip{
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .commit-card:hover{transform:rotate(0deg) translate(-2px,-2px) !important;box-shadow:7px 7px 0 var(--ink);}
+  .doc-card:hover{transform:rotate(0deg) translate(-2px,-2px) !important;box-shadow:9px 9px 0 var(--ink);}
+  .eje:hover,.cap:hover,.role-card:hover,.principle:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);}
+  .pillar:hover{transform:rotate(0deg) translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+  .chip:hover{transform:translateY(-2px) rotate(-2deg);}
+  .fact-card{transition:transform .22s ease;}
+  .fact-card:hover{transform:translateY(-4px);}
+
+  .bloom-dot{transition:transform .25s ease, box-shadow .25s ease;}
+  .bloom-node a:hover .bloom-dot{transform:rotate(-8deg) scale(1.1);box-shadow:6px 6px 0 rgba(0,0,0,0.4);}
+
+  /* soft wave dividers */
+  .wave{display:block;width:100%;height:auto;line-height:0;}
+  .wave svg{display:block;width:100%;height:60px;}
+  @media(max-width:700px){.wave svg{height:34px;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="logo-chip"><img src="assets/irismaia-logo.png" alt="Iris Maia — logo"></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <nav class="links" id="navLinks">
+      <a href="#bio">Quién soy</a>
+      <a href="#ruta">La ruta</a>
+      <a href="#concejo">Concejo</a>
+      <a href="#alcaldia">Alcaldía</a>
+      <a href="#congreso">Congreso</a>
+      <a href="#presidencia">Presidencia</a>
+      <a href="#documentos">Documentos</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Iris Maia<br><em>Duque.</em></h1>
+      <p class="lede">Ingeniera de sistemas, mujer trans afrodescendiente, nacida en Bogotá y criada entre Buenaventura, Puerto Leguízamo y Cali. Convicción política desde los 16 años.</p>
+      <p class="tagline">"La unión hace la fuerza, y la política se puede hacer mejor: sin mentir, sin esconder, como debe ser."</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#ruta">Ver la ruta 2031–2050 ↓</a>
+        <a class="btn btn-ghost" href="#bio">Conóceme</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <p class="hc-label">Hoja de ruta electoral</p>
+      <div class="hero-stat-list">
+        <div class="hero-stat"><span class="yr">2031</span><span class="role">Concejo de Cali</span></div>
+        <div class="hero-stat"><span class="yr">2035</span><span class="role">Alcaldía de Cali</span></div>
+        <div class="hero-stat"><span class="yr">2042</span><span class="role">Cámara de Representantes, Bogotá</span></div>
+        <div class="hero-stat"><span class="yr">2046</span><span class="role">Senado de la República</span></div>
+        <div class="hero-stat"><span class="yr">2050</span><span class="role">Presidencia de la República</span></div>
+      </div>
+      <div class="doc-row" style="margin-top:22px;border-top:1px solid rgba(255,255,255,0.12);padding-top:18px;">
+        <a class="btn-doc btn-doc-dark" style="font-size:12.5px;padding:9px 14px;" href="assets/iris-maia-plan-gobierno-cali-2035.pdf" download>
+          <span class="doc-ic">📄</span><span>Plan Cali 2035</span>
+        </a>
+        <a class="btn-doc btn-doc-dark" style="font-size:12.5px;padding:9px 14px;" href="assets/iris-maia-plan-gobierno-nacional-2050.pdf" download>
+          <span class="doc-ic">📄</span><span>Plan nacional 2050</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,26 L96,44 L192,14 L288,46 L384,18 L480,44 L576,12 L672,46 L768,16 L864,44 L960,14 L1056,46 L1152,18 L1248,44 L1344,12 L1440,28 L1440,70 L0,70 Z" fill="#00843e"></path></svg></div>
+</section>
+
+<!-- EN CIFRAS -->
+<section class="cifras">
+  <div class="wrap">
+    <div class="cifras-head">
+      <p class="eyebrow">Esta ruta, en cifras</p>
+      <h2>Diecinueve años, un solo hilo conductor</h2>
+    </div>
+    <div class="cifras-row">
+      <div class="cifra"><span class="num" data-count="6">0</span><span class="lbl">Compromisos<br>Concejo 2031</span></div>
+      <div class="cifra"><span class="num" data-count="16">0</span><span class="lbl">Ejes<br>Alcaldía 2035</span></div>
+      <div class="cifra"><span class="num" data-count="21">0</span><span class="lbl">Cargos de<br>coalición</span></div>
+      <div class="cifra"><span class="num" data-count="28">0</span><span class="lbl">Proyectos<br>de ley</span></div>
+      <div class="cifra"><span class="num" data-count="20">0</span><span class="lbl">Capítulos plan<br>nacional</span></div>
+      <div class="cifra"><span class="num" data-count="19">0</span><span class="lbl">Años de<br>ruta pública</span></div>
+    </div>
+  </div>
+  <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,44 L96,20 L192,52 L288,16 L384,48 L480,18 L576,50 L672,14 L768,46 L864,20 L960,50 L1056,16 L1152,48 L1248,18 L1344,50 L1440,42 L1440,70 L0,70 Z" fill="#faf8f0"></path></svg></div>
+</section>
+
+<!-- BIO -->
+<section class="bio" id="bio">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">¿Quién soy?</p>
+      <h2>Del Pacífico a la política, sin desvíos.</h2>
+    </div>
+    <div class="bio-grid">
+      <div>
+        <p class="big">Nací en Bogotá y crecí entre Buenaventura, Puerto Leguízamo y Cali. Esa ruta me enseñó, antes que cualquier libro de ciencia política, lo distinta que es la Colombia que gobiernan los indicadores nacionales de la que se vive en cada territorio.</p>
+        <p>Soy ingeniera de sistemas egresada de la Universidad Santiago de Cali. Empecé mi carrera y ambición política desde los 16 años en el activismo de juventudes, con dos ideas que no me han abandonado desde entonces: que la unión hace la fuerza (trabajar con quienes piensan distinto, de izquierda o de derecha, garantiza mejor gobernanza) y que la política se puede hacer mejor: sin mentir, sin esconder, como debe ser.</p>
+        <p>Milito en la Alianza Verde. No porque el girasol resuelva solo los problemas de Cali o de Colombia, sino porque comparto su convicción de que la vida, los derechos y el territorio no son temas de nicho: son la base de cualquier gobierno serio.</p>
+        <div class="pillar-row">
+          <div class="pillar"><h4>La unión hace la fuerza</h4><p>Gobernar con los diferentes (izquierda, derecha, centro) cuando el criterio técnico y la necesidad de la gente lo justifican.</p></div>
+          <div class="pillar"><h4>Sin mentir, sin esconder</h4><p>Cada propuesta de este sitio dice quién la ejecuta, con qué plata se paga y cómo se sabe si funcionó.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="portrait-frame">
+          <div class="portrait-inner">
+            <span class="portrait-icon">🌻</span>
+            <p class="portrait-quote">"Sin mentir, sin esconder, como debe ser."</p>
+          </div>
+        </div>
+        <a class="btn-doc" style="margin-top:18px;width:100%;justify-content:center;" href="#ruta">Ver toda la ruta →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,44 L96,20 L192,52 L288,16 L384,48 L480,18 L576,50 L672,14 L768,46 L864,20 L960,50 L1056,16 L1152,48 L1248,18 L1344,50 L1440,42 L1440,0 L0,0 Z" fill="#06251a"></path></svg></div>
+
+<!-- ROUTE / TIMELINE -->
+<section class="route" id="ruta">
+  <div class="wrap">
+    <div class="sec-head on-dark">
+      <p class="eyebrow on-dark">La ruta</p>
+      <h2>Un girasol no florece de un día para otro.</h2>
+      <p class="sub">Dieciocho años: de una curul de control político en Cali hasta un plan de gobierno nacional. Cada paso se construye sobre el anterior, no lo reemplaza.</p>
+    </div>
+    <div class="bloom-track">
+      <div class="bloom-node stage-1"><a href="#concejo">
+        <div class="bloom-dot">🌱</div>
+        <span class="yr">2031</span>
+        <h4>Concejo de Cali</h4>
+        <p>Control político y veeduría, curul por curul.</p>
+      </a></div>
+      <div class="bloom-node stage-2"><a href="#alcaldia">
+        <div class="bloom-dot">🌿</div>
+        <span class="yr">2035</span>
+        <h4>Alcaldía de Cali</h4>
+        <p>Por una Cali que funcione para todos.</p>
+      </a></div>
+      <div class="bloom-node stage-3"><a href="#congreso">
+        <div class="bloom-dot">🍃</div>
+        <span class="yr">2042</span>
+        <h4>Cámara, Bogotá</h4>
+        <p>Veintiocho proyectos de ley, agenda nacional.</p>
+      </a></div>
+      <div class="bloom-node stage-4"><a href="#congreso">
+        <div class="bloom-dot">🌼</div>
+        <span class="yr">2046</span>
+        <h4>Senado</h4>
+        <p>La misma agenda, banca ampliada.</p>
+      </a></div>
+      <div class="bloom-node stage-5"><a href="#presidencia">
+        <div class="bloom-dot">🌻</div>
+        <span class="yr">2050</span>
+        <h4>Presidencia</h4>
+        <p>Un plan de gobierno para todo el país.</p>
+      </a></div>
+    </div>
+  </div>
+</section>
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,26 L96,44 L192,14 L288,46 L384,18 L480,44 L576,12 L672,46 L768,16 L864,44 L960,14 L1056,46 L1152,18 L1248,44 L1344,12 L1440,28 L1440,70 L0,70 Z" fill="#06251a"></path></svg></div>
+
+<!-- CONCEJO 2031 -->
+<section class="stage-block" id="concejo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="stage-tag">Para 2031</span>
+      <h2 style="margin-top:16px;">Concejo de Cali</h2>
+      <p class="sub">Seis compromisos de control político, pensados para lo que una curul puede hacer desde el primer día, sin esperar mayorías ni reformas de reglamento.</p>
+    </div>
+    <div class="commit-grid">
+      <div class="commit-card">
+        <span class="commit-tag">Contra la opacidad</span>
+        <span class="commit-num">01</span>
+        <h4>Control político efectivo a la contratación distrital</h4>
+        <span class="lbl">Compromiso</span>
+        <p>Citar periódicamente a las secretarías con mayor volumen de contratación pública, exigiendo informes públicos antes de cada debate, no explicaciones improvisadas en la sesión.</p>
+        <span class="lbl">Cómo se cumple</span>
+        <p>El Concejo puede citar funcionarios y debatir el uso de los recursos del Distrito; el compromiso es ejercerlo con calendario público, no solo cuando estalla un escándalo.</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-tag">Por la transparencia</span>
+        <span class="commit-num">02</span>
+        <h4>Veeduría digital al propio Concejo</h4>
+        <span class="lbl">Compromiso</span>
+        <p>Publicación en tiempo real de las votaciones, la asistencia y las declaraciones de bienes de cada concejal.</p>
+        <span class="lbl">Cómo se cumple</span>
+        <p>Un concejal puede publicar su propia gestión por su cuenta; el compromiso es hacerlo desde el primer día, sin esperar una reforma del reglamento interno.</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-tag">Por la democracia directa</span>
+        <span class="commit-num">03</span>
+        <h4>Presupuestos participativos por comuna</h4>
+        <span class="lbl">Compromiso</span>
+        <p>Impulsar, mediante proyectos de acuerdo, que una porción del presupuesto de inversión de proximidad se decida directamente por la ciudadanía en cada comuna.</p>
+        <span class="lbl">Cómo se cumple</span>
+        <p>Radicar el proyecto e insistir en cada legislatura hasta su aprobación. Es la base directa del compromiso de presupuestos participativos del plan de gobierno de 2035.</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-tag">Por el seguimiento ciudadano</span>
+        <span class="commit-num">04</span>
+        <h4>Banco público de proyectos de acuerdo</h4>
+        <span class="lbl">Compromiso</span>
+        <p>Un registro público y actualizado del estado de cada proyecto de acuerdo presentado al Concejo, desde su radicación hasta su archivo o aprobación.</p>
+        <span class="lbl">Cómo se cumple</span>
+        <p>Exige solo disciplina de publicación y seguimiento propio, sin depender de que otros concejales se sumen a la iniciativa.</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-tag">Por los territorios</span>
+        <span class="commit-num">05</span>
+        <h4>Enlace directo con las Juntas de Acción Comunal</h4>
+        <span class="lbl">Compromiso</span>
+        <p>Canal permanente con las JAC de las comunas de ladera y oriente, para llevar sus prioridades al debate del Concejo sin intermediarios políticos.</p>
+        <span class="lbl">Cómo se cumple</span>
+        <p>Reuniones periódicas y públicas con las juntas, con el compromiso de llevar al menos una de sus prioridades a debate formal cada período de sesiones.</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-tag">Por las nuevas generaciones</span>
+        <span class="commit-num">06</span>
+        <h4>Una voz joven en la política de Cali</h4>
+        <span class="lbl">Compromiso</span>
+        <p>Demostrar, desde una curul, que la juventud no es una limitación para la política seria, sino una razón adicional para hacerla con disciplina y sin componendas.</p>
+        <span class="lbl">Cómo se cumple</span>
+        <p>Apertura de espacios de participación política temprana para estudiantes, y rendición de cuentas periódica dirigida específicamente a los nuevos votantes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>🌻 ¡LA RUTA SIGUE! &nbsp; 🌻 DE LA CURUL A LA ALCALDÍA &nbsp; 🌻 ¡LA RUTA SIGUE! &nbsp; 🌻 DE LA CURUL A LA ALCALDÍA &nbsp; 🌻 ¡LA RUTA SIGUE! &nbsp; 🌻 DE LA CURUL A LA ALCALDÍA &nbsp; </span>
+    <span aria-hidden="true">🌻 ¡LA RUTA SIGUE! &nbsp; 🌻 DE LA CURUL A LA ALCALDÍA &nbsp; 🌻 ¡LA RUTA SIGUE! &nbsp; 🌻 DE LA CURUL A LA ALCALDÍA &nbsp; 🌻 ¡LA RUTA SIGUE! &nbsp; 🌻 DE LA CURUL A LA ALCALDÍA &nbsp; </span>
+  </div>
+</div>
+
+<!-- ALCALDÍA 2035 -->
+<section class="stage-block plan-city" id="alcaldia">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="stage-tag">Para 2035</span>
+      <h2 style="margin-top:16px;">Alcaldía Distrital de Santiago de Cali</h2>
+      <p class="sub"><em>«Una Cali que funciona para todos.»</em> Un plan de trabajo para gobernar desde el primer día, dentro de las competencias reales de un Distrito Especial: quién ejecuta cada propuesta, con qué plata se paga y cómo se sabe si funcionó.</p>
+      <div class="doc-row">
+        <a class="btn-doc" href="assets/iris-maia-plan-gobierno-cali-2035.pdf" download>
+          <span class="doc-ic">📄</span>
+          <span>Descargar el plan completo<span class="doc-meta"> · PDF</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="principle"><b>🎯 Viabilidad antes que ambición</b>Si no se puede pagar o no es competencia del Distrito, no está en el plan.</div>
+      <div class="principle"><b>🔁 Continuidad sobre lo que funciona</b>No se destruye una obra exitosa solo porque la hizo otra administración.</div>
+      <div class="principle"><b>🗺️ Territorio con equidad</b>Las seis localidades reciben inversión proporcional a su necesidad, no a su peso político.</div>
+      <div class="principle"><b>📊 Datos abiertos y metas medibles</b>Indicadores de línea base y meta, publicados cada semestre en un tablero público.</div>
+      <div class="principle"><b>🚪 Gobierno de puertas abiertas</b>Presupuestos participativos y rendición de cuentas territorial, no solo en época electoral.</div>
+      <div class="principle"><b>🌻 Cero corrupción, cero clientelismo</b>Contratación por mérito; cargos técnicos de localidades y empresas por concurso.</div>
+    </div>
+
+    <div class="sec-head" style="margin-bottom:26px;">
+      <p class="eyebrow">Los 16 ejes</p>
+      <h3 style="font-size:24px;margin-top:8px;">Eje por eje, comuna por comuna</h3>
+    </div>
+    <div class="ejes-grid">
+      <div class="eje"><span class="n">01</span><h5>Seguridad ciudadana y convivencia</h5><p>Reducir homicidios, hurto y percepción de inseguridad con prevención, presencia policial y justicia cercana.</p></div>
+      <div class="eje"><span class="n">02</span><h5>Movilidad, transporte y espacio público</h5><p>Sistema multimodal seguro que reduzca tiempos de viaje y muertes en las vías.</p></div>
+      <div class="eje"><span class="n">03</span><h5>Gestión del riesgo, agua y clima</h5><p>Cerrar las obras estructurales del Jarillón y anticipar emergencias en vez de solo reaccionar.</p></div>
+      <div class="eje"><span class="n">04</span><h5>Desarrollo económico y empleo formal</h5><p>Más empleo formal aprovechando la vocación logística, agroindustrial y de servicios de la región.</p></div>
+      <div class="eje"><span class="n">05</span><h5>Educación</h5><p>Calidad homogénea en toda la ciudad, menos deserción, más acceso a educación superior.</p></div>
+      <div class="eje"><span class="n">06</span><h5>Salud</h5><p>Atención primaria fuerte, que resuelva más cerca de la casa de la gente.</p></div>
+      <div class="eje"><span class="n">07</span><h5>Vivienda, hábitat y ordenamiento</h5><p>Vivienda digna y crecimiento ordenado conforme al Plan de Ordenamiento Territorial.</p></div>
+      <div class="eje"><span class="n">08</span><h5>Equidad social y lucha contra la pobreza</h5><p>Inversión pública proporcional a la necesidad de cada localidad, no a su capacidad de presión.</p></div>
+      <div class="eje"><span class="n">09</span><h5>Primera infancia, niñez, juventud, adulto mayor</h5><p>Desarrollo integral desde la primera infancia y dignidad para la vejez.</p></div>
+      <div class="eje"><span class="n">10</span><h5>Mujer, género y diversidad sexual</h5><p>Seguridad, empleo y acceso a servicios que no dependan del género ni la orientación sexual.</p></div>
+      <div class="eje"><span class="n">11</span><h5>Comunidades étnicas</h5><p>Cerrar las brechas históricas de la población afrodescendiente e indígena con política específica.</p></div>
+      <div class="eje"><span class="n">12</span><h5>Cultura, deporte y recreación</h5><p>Convertir la identidad cultural y deportiva de Cali en empleo y cohesión social.</p></div>
+      <div class="eje"><span class="n">13</span><h5>Turismo</h5><p>Cali como destino cultural, gastronómico y de naturaleza, de la mano de la política de seguridad.</p></div>
+      <div class="eje"><span class="n">14</span><h5>Medio ambiente y sostenibilidad urbana</h5><p>Mejor calidad del aire, más zonas verdes y manejo responsable de residuos.</p></div>
+      <div class="eje"><span class="n">15</span><h5>Gobierno distrital y localidades</h5><p>Cerrar de forma ordenada la transición a Distrito Especial, con seis localidades en funcionamiento.</p></div>
+      <div class="eje"><span class="n">16</span><h5>Modernización tecnológica</h5><p>Trámites digitales y conectividad equitativa entre el sur y las localidades de ladera y oriente.</p></div>
+    </div>
+
+    <div class="fin-strip">
+      <h4>¿CON QUÉ PLATA SE PAGA?</h4>
+      <div class="fin-cols">
+        <div>Sistema General de Participaciones, para salud, educación y agua potable.</div>
+        <div>Ingresos Corrientes de Libre Destinación, mejorando el recaudo, no creando impuestos nuevos.</div>
+        <div>Sistema General de Regalías, para infraestructura e inversión social.</div>
+        <div>Cofinanciación con el Gobierno Nacional, especialmente para el Jarillón y vivienda.</div>
+        <div>Recursos propios de las empresas del Distrito, como EMCALI.</div>
+        <div>Valorización y participación en plusvalía, para obras con beneficio directo medible.</div>
+        <div>Alianzas público-privadas, con contratos transparentes y de conocimiento público.</div>
+        <div>Cooperación internacional, sobre todo en riesgo climático y medio ambiente.</div>
+        <div>Eficiencia del gasto público, redirigiendo el ahorro a los ejes prioritarios.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COALITION -->
+<section class="coalition" id="coalicion">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Cómo se gobierna</p>
+      <h2>Una coalición de siete partidos, veintiún cargos</h2>
+      <p class="sub">La unión hace la fuerza también aplica al gabinete: gobernar Cali con perfiles técnicos de partidos distintos, cada uno responsable de un eje concreto del plan, no de una cuota sin tarea.</p>
+    </div>
+
+    <div class="party-legend">
+      <span class="chip"><span class="dot" style="background:var(--u-color)"></span>Partido de la U · 6</span>
+      <span class="chip"><span class="dot" style="background:var(--verdep-color)"></span>Alianza Verde · 3</span>
+      <span class="chip"><span class="dot" style="background:var(--con-color)"></span>Partido Conservador · 2</span>
+      <span class="chip"><span class="dot" style="background:var(--cr-color)"></span>Cambio Radical · 4</span>
+      <span class="chip"><span class="dot" style="background:var(--asi-color)"></span>ASI · En Marcha · D y C · 4</span>
+      <span class="chip"><span class="dot" style="background:var(--ox-color)"></span>Partido Oxígeno · 2</span>
+    </div>
+
+    <details class="party" open>
+      <summary><span class="party-name"><span class="dot" style="background:var(--u-color)"></span>Partido de la U</span><span class="party-count">6 entidades <span class="chev">▾</span></span></summary>
+      <div class="party-body">
+        <div class="role-card"><div class="entity">Despacho del alcalde · Secretaría de Gobierno</div><div class="who">Carlos Felipe López López</div><div class="cred">Presidente de la Asamblea del Valle. Politólogo (Javeriana), maestría en administración de organizaciones.</div><span class="eje-tag">Coordinación institucional y jefatura de gabinete</span></div>
+        <div class="role-card"><div class="entity">Secretaría Jurídica</div><div class="who">Carlos Andrés Arias</div><div class="cred">Presidente del Concejo de Cali. Abogado en derecho administrativo, trayectoria construida desde ASI antes de pasar a la U.</div><span class="eje-tag">Defensa jurídica y contratación del Distrito</span></div>
+        <div class="role-card"><div class="entity">Depto. Administrativo de Planeación Municipal</div><div class="who">Diego Fernando Mosquera</div><div class="cred">Diputado de la Asamblea del Valle. Enlace con la Gobernación del Valle del Cauca.</div><span class="eje-tag">Eje 15 — transición institucional y Plan de Desarrollo</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Hacienda Distrital</div><div class="who">Juan Carlos Rengifo</div><div class="cred">Diputado de la Asamblea del Valle, bancada más grande del departamento.</div><span class="eje-tag">Financiación del plan</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Salud Pública Distrital</div><div class="who">Lina María Segura</div><div class="cred">Diputada de la Asamblea del Valle.</div><span class="eje-tag">Eje 6 — Salud</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Desarrollo Económico</div><div class="who">Hugo Perlaza</div><div class="cred">Diputado de la Asamblea del Valle.</div><span class="eje-tag">Eje 4 — Desarrollo económico y empleo formal</span></div>
+      </div>
+    </details>
+
+    <details class="party">
+      <summary><span class="party-name"><span class="dot" style="background:var(--verdep-color)"></span>Alianza Verde</span><span class="party-count">3 entidades <span class="chev">▾</span></span></summary>
+      <div class="party-body">
+        <div class="role-card"><div class="entity">DAGMA — Gestión del Medio Ambiente</div><div class="who">Óscar Andrés Neira Quintero</div><div class="cred">Diputado de la Asamblea del Valle (31.337 votos). Perfil ambiental con respaldo electoral fuerte.</div><span class="eje-tag">Eje 14 — Medio ambiente y sostenibilidad urbana</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Participación Ciudadana y Gobierno Abierto</div><div class="who">Esteban Oliveros Montoya</div><div class="cred">Diputado de la Asamblea del Valle. Agenda de transparencia y gobierno abierto.</div><span class="eje-tag">Eje 15 — Transparencia y datos abiertos</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Gestión del Riesgo</div><div class="who">Carlos Ariel Patiño</div><div class="cred">Concejal de Cali, 2° vicepresidente del Concejo. Gestión legislativa local.</div><span class="eje-tag">Eje 3 — Gestión del riesgo, agua y cambio climático</span></div>
+      </div>
+    </details>
+
+    <details class="party">
+      <summary><span class="party-name"><span class="dot" style="background:var(--con-color)"></span>Partido Conservador</span><span class="party-count">2 entidades <span class="chev">▾</span></span></summary>
+      <div class="party-body">
+        <div class="role-card"><div class="entity">Secretaría de Seguridad y Justicia</div><div class="who">Marlon Andrés Cubillos Borrero</div><div class="cred">Vicepresidente del Concejo de Cali, presidente del Directorio Conservador en Cali. Abogado en derecho administrativo y constitucional.</div><span class="eje-tag">Eje 1 — Seguridad ciudadana y convivencia</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Educación</div><div class="who">Mario Germán Fernández de Soto Sánchez</div><div class="cred">Diputado de la Asamblea del Valle. Doctorado en ciencias de la educación, maestrías en gerencia pública.</div><span class="eje-tag">Eje 5 — Educación</span></div>
+      </div>
+    </details>
+
+    <details class="party">
+      <summary><span class="party-name"><span class="dot" style="background:var(--cr-color)"></span>Cambio Radical</span><span class="party-count">4 entidades <span class="chev">▾</span></span></summary>
+      <div class="party-body">
+        <div class="role-card"><div class="entity">Secretaría de Infraestructura y Valorización</div><div class="who">Alberto Varela</div><div class="cred">Concejal de Cali. Bancada de infraestructura y obras, línea tradicional del partido.</div><span class="eje-tag">Eje 2 — Movilidad, transporte y espacio público</span></div>
+        <div class="role-card"><div class="entity">Instituto Municipal de Formación para el Empleo</div><div class="who">Mariluz Zuluaga</div><div class="cred">Diputada de la Asamblea del Valle (2° periodo), exsecretaria de Educación del departamento.</div><span class="eje-tag">Eje 4 — Ruta de empleo juvenil y formación técnica</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Vivienda Social y Hábitat</div><div class="who">Cupo Cambio Radical — nombre por definir con el directorio departamental</div><div class="cred">Continuidad con la línea de infraestructura y obras del partido.</div><span class="eje-tag">Eje 7 — Vivienda, hábitat y ordenamiento territorial</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Turismo</div><div class="who">Cupo Cambio Radical — nombre por definir con el directorio departamental</div><div class="cred">Vocación de gestión pragmática y resultados concretos.</div><span class="eje-tag">Eje 13 — Turismo</span></div>
+      </div>
+    </details>
+
+    <details class="party">
+      <summary><span class="party-name"><span class="dot" style="background:var(--asi-color)"></span>ASI · En Marcha · Dignidad y Compromiso</span><span class="party-count">4 entidades <span class="chev">▾</span></span></summary>
+      <div class="party-body">
+        <div class="role-card"><div class="entity">Secretaría de Desarrollo Territorial y Bienestar Social</div><div class="who">Edinson Alberto Giraldo</div><div class="cred">Concejal de Cali por la coalición conjunta de ASI, En Marcha y Dignidad y Compromiso: puente hacia los tres partidos a la vez.</div><span class="eje-tag">Ejes 8, 9 y 11 — equidad social, niñez/juventud y comunidades étnicas</span></div>
+        <div class="role-card"><div class="entity">Secretaría de la Mujer, Equidad de Género y Diversidad</div><div class="who">Cupo ASI — nombre por definir con el directorio</div><div class="cred">Continuidad con la agenda histórica de la ASI de comunidades diversas y desarrollo territorial diferencial.</div><span class="eje-tag">Eje 10 — Mujer, género y diversidad sexual</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Cultura, Deporte y Recreación</div><div class="who">Cupo En Marcha — nombre por definir con el directorio</div><div class="cred">Renovación generacional: liderazgos jóvenes al frente de la agenda cultural y deportiva.</div><span class="eje-tag">Eje 12 — Cultura, deporte y recreación</span></div>
+        <div class="role-card"><div class="entity">Secretaría de Movilidad</div><div class="who">Cupo Dignidad y Compromiso — nombre por definir con el directorio</div><div class="cred">Gestión pública eficiente y reorganización con criterio técnico, sin recortar a ciegas.</div><span class="eje-tag">Eje 2 — Movilidad, transporte y espacio público</span></div>
+      </div>
+    </details>
+
+    <details class="party">
+      <summary><span class="party-name"><span class="dot" style="background:var(--ox-color)"></span>Partido Oxígeno</span><span class="party-count">2 entidades <span class="chev">▾</span></span></summary>
+      <div class="party-body">
+        <div class="role-card"><div class="entity">Secretaría de Transparencia y Buen Gobierno</div><div class="who">Aida Garcés</div><div class="cred">Bandera histórica del partido, liderado nacionalmente por Íngrid Betancourt, aún sin representación electa clara en Cali/Valle.</div><span class="eje-tag">Eje 15 — Transparencia y consolidación de las localidades</span></div>
+        <div class="role-card"><div class="entity">Secretaría de las TIC y Modernización Digital</div><div class="who">Carmen Ágredo</div><div class="cred">Renovación de la forma de hacer política a través de la tecnología y los datos abiertos.</div><span class="eje-tag">Eje 16 — Modernización tecnológica y ciudad inteligente</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- CONGRESO -->
+<section class="agenda stage-block" id="congreso">
+  <div class="wrap">
+    <span class="stage-tag" style="background:transparent;border-color:rgba(255,255,255,0.25);color:var(--girasol-300);">Para 2042</span>
+    <h2 style="margin-top:16px;font-size:clamp(28px,4vw,42px);color:#fff;">Cámara de Representantes por Bogotá</h2>
+    <p class="sub" style="margin-top:14px;max-width:760px;">Veinte proyectos de ley y reformas, organizados en ocho frentes. La misma agenda, con la banca ampliada, es la que buscaría llevar al Senado en 2046.</p>
+    <div class="doc-row">
+      <a class="btn-doc btn-doc-dark" href="assets/iris-maia-plan-gobierno-nacional-2050.pdf" download>
+        <span class="doc-ic">📄</span>
+        <span>Descargar el sustento técnico de esta agenda<span class="doc-meta"> · PDF</span></span>
+      </a>
+    </div>
+
+    <div class="agenda-grid" style="margin-top:40px;">
+      <details class="cat" open>
+        <summary>Trabajo y protección social <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Estatuto del Trabajador Independiente Cualificado</b>, para quien hoy trabaja sin ninguna red de protección.</li>
+          <li><b>Prohibición y sanción de la tercerización encubierta</b> en salud y educación pública.</li>
+          <li><b>Fondo de Estabilización de Ingresos</b> para docentes no oficiales entre períodos académicos.</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Igualdad y diversidad <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Transparencia salarial y paridad efectiva</b> entre hombres y mujeres.</li>
+          <li><b>Incentivo tributario</b> a la vinculación laboral de personas con discapacidad.</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Desarrollo territorial y gasto público <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Reforma a la fórmula de distribución del SGP</b>, con enfoque territorial diferencial.</li>
+          <li><b>Fondo de Convergencia Regional</b>, financiado con regalías.</li>
+          <li><b>Límite al gasto de funcionamiento</b> en contratos de prestación de servicios.</li>
+          <li><b>Zonas de Desarrollo Económico Inclusivo</b> (ZDEI).</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Modernización del Estado y digitalización <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Fusión y reorganización institucional</b> del sector Ciencia-TIC e Interior-Justicia.</li>
+          <li><b>Reforma al Sistema de Carrera Administrativa.</b></li>
+          <li><b>Identidad digital única</b>, interoperable con todo el Estado.</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Justicia, educación y medio ambiente <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Ampliación de competencias de los jueces de paz.</b></li>
+          <li><b>Modernización educativa</b> y reforma al modelo de contratación de salud pública.</li>
+          <li><b>Endurecimiento penal contra la deforestación</b> y tipificación del ecocidio.</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Educación y modernización electoral <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Currículo educativo nacional híbrido.</b></li>
+          <li><b>Modernización digital del ICFES</b> y presentación electrónica de pruebas de Estado.</li>
+          <li><b>Voto digital centralizado</b> en puestos de votación designados.</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Defensa, paz y protección de líderes <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Blindaje presupuestal</b> para las Fuerzas Militares.</li>
+          <li><b>Actualización del régimen salarial</b> de suboficiales y soldados profesionales.</li>
+          <li><b>Vigencias futuras</b> para el Plan Decenal de Modernización Naval.</li>
+          <li><b>Unidad de Inteligencia Técnica y Análisis de Datos.</b></li>
+          <li><b>Ley Marco de Diálogos de Paz</b> con grupos armados organizados.</li>
+          <li><b>Protección integral a líderes sociales</b> y defensores de derechos humanos.</li>
+        </ol></div>
+      </details>
+      <details class="cat">
+        <summary>Agro, cultura, diversidad e infraestructura <span class="chev">▾</span></summary>
+        <div class="cat-body"><ol>
+          <li><b>Aseguramiento agropecuario universal</b> para pequeños productores.</li>
+          <li><b>Régimen de protección social</b> para artistas y gestores culturales independientes.</li>
+          <li><b>Ley Estatutaria de Consulta Previa.</b></li>
+          <li><b>Piso presupuestal</b> para mantenimiento vial.</li>
+        </ol></div>
+      </details>
+    </div>
+
+    <div class="senate-note">
+      <span class="yr-badge">Para 2046</span>
+      <p><b>Senado de la República.</b> El salto de la Cámara al Senado no es un cambio de agenda: es la misma hoja de ruta legislativa de 2042, sostenida y llevada a una banca de alcance nacional, con los proyectos que hayan quedado en trámite y los que aún falten por radicar.</p>
+    </div>
+  </div>
+</section>
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,44 L96,20 L192,52 L288,16 L384,48 L480,18 L576,50 L672,14 L768,46 L864,20 L960,50 L1056,16 L1152,48 L1248,18 L1344,50 L1440,42 L1440,70 L0,70 Z" fill="#f1ecd8"></path></svg></div>
+
+<!-- PRESIDENCIA 2050 -->
+<section class="presidency stage-block" id="presidencia">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="stage-tag">Para 2050</span>
+      <h2 style="margin-top:16px;">Presidencia de la República</h2>
+      <p class="sub">Veinte capítulos, uno por eje de país. Ningún capítulo exige reforma constitucional: cada uno señala su marco legal, su nivel de gobierno competente y su fuente de financiación.</p>
+      <div class="doc-row">
+        <a class="btn-doc" href="assets/iris-maia-plan-gobierno-nacional-2050.pdf" download>
+          <span class="doc-ic">📄</span>
+          <span>Descargar el plan de gobierno<span class="doc-meta"> · PDF</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="cap-grid">
+      <div class="cap"><span class="cn">CAP. 01</span><h5>Atención primaria en salud</h5><p>Centros de salud de primer nivel dotados y operando en los 170 municipios PDET.</p></div>
+      <div class="cap"><span class="cn">CAP. 02</span><h5>Educación pública de calidad</h5><p>Conectividad rural total y currículo de bachillerato con competencias digitales.</p></div>
+      <div class="cap"><span class="cn">CAP. 03</span><h5>Protección ambiental efectiva</h5><p>Sanciones más duras a la deforestación y guardabosques en 51 municipios.</p></div>
+      <div class="cap"><span class="cn">CAP. 04</span><h5>Apoyo al emprendimiento local</h5><p>Ventanilla única empresarial digital y alivio tributario a empresas nuevas.</p></div>
+      <div class="cap"><span class="cn">CAP. 05</span><h5>Gasto público eficiente</h5><p>Auditoría de contratos y presupuesto por resultados en cinco ministerios.</p></div>
+      <div class="cap"><span class="cn">CAP. 06</span><h5>Equidad de género en la práctica</h5><p>Transparencia salarial, paridad en listas y fortalecimiento de rutas contra la violencia.</p></div>
+      <div class="cap"><span class="cn">CAP. 07</span><h5>Seguridad alimentaria y campo</h5><p>Asistencia técnica gratuita universal y sustitución voluntaria con garantías.</p></div>
+      <div class="cap"><span class="cn">CAP. 08</span><h5>Estado digital y transparente</h5><p>80 % de trámites ciudadanos digitalizados y datos abiertos por defecto.</p></div>
+      <div class="cap"><span class="cn">CAP. 09</span><h5>Seguridad, paz y estabilidad territorial</h5><p>Cero tolerancia a la extorsión; salida negociada, verificable y con plazo para grupos armados.</p></div>
+      <div class="cap"><span class="cn">CAP. 10</span><h5>Economía regional y empleo</h5><p>Presupuesto territorial diferencial y Zonas de Desarrollo Económico Inclusivo.</p></div>
+      <div class="cap"><span class="cn">CAP. 11</span><h5>Protección a trabajadores independientes</h5><p>Un estatuto laboral para quien hoy trabaja sin ninguna red de protección.</p></div>
+      <div class="cap"><span class="cn">CAP. 12</span><h5>Fuerzas militares</h5><p>Presupuesto de inversión blindado e industria nacional de defensa.</p></div>
+      <div class="cap"><span class="cn">CAP. 13</span><h5>Diversidad, inclusión y sociedad</h5><p>Registro nacional de violencias por prejuicio y consulta previa con plazos definidos.</p></div>
+      <div class="cap"><span class="cn">CAP. 14</span><h5>Sistema judicial</h5><p>Descongestión con metas vinculantes y jueces de paz con competencias ampliadas.</p></div>
+      <div class="cap"><span class="cn">CAP. 15</span><h5>Infraestructura y movilidad</h5><p>Piso legal de mantenimiento vial y ferrocarriles de carga como política de Estado.</p></div>
+      <div class="cap"><span class="cn">CAP. 16</span><h5>Vivienda</h5><p>Mejoramiento de vivienda en sitio propio para 300.000 hogares en cuatro años.</p></div>
+      <div class="cap"><span class="cn">CAP. 17</span><h5>Cultura</h5><p>Protección social para artistas y estímulos a la creación fuera de las tres grandes ciudades.</p></div>
+      <div class="cap"><span class="cn">CAP. 18</span><h5>Política exterior</h5><p>Agenda propia de biodiversidad y diversificación de socios comerciales estratégicos.</p></div>
+      <div class="cap"><span class="cn">CAP. 19</span><h5>Fusión y modernización ministerial</h5><p>Un Estado más coherente en su arquitectura, no un Estado más pequeño.</p></div>
+      <div class="cap"><span class="cn">CAP. 20</span><h5>Economía y crecimiento productivo</h5><p>Simplificar el sistema tributario y desregular sin desmontar la capacidad del Estado.</p></div>
+    </div>
+
+    <div class="bloom-final">
+      <div class="icon">🌻</div>
+      <h3>Diecinueve años de una misma convicción.</h3>
+      <p>De una curul de control político en Cali a un plan de gobierno para todo el país: la misma promesa en cada etapa —viabilidad antes que ambición, datos públicos y cuentas claras— aplicada a una escala cada vez mayor.</p>
+    </div>
+  </div>
+</section>
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,26 L96,44 L192,14 L288,46 L384,18 L480,44 L576,12 L672,46 L768,16 L864,44 L960,14 L1056,46 L1152,18 L1248,44 L1344,12 L1440,28 L1440,70 L0,70 Z" fill="#06251a"></path></svg></div>
+
+<!-- DOCUMENTOS -->
+<section id="documentos" style="background:var(--crema-2);">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;margin:0 auto 40px;">
+      <p class="eyebrow">Sin mentir, sin esconder</p>
+      <h2>Los documentos, completos</h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto;">Cada compromiso de esta página sale de un documento público. Descárgalos, léelos, contrástalos.</p>
+    </div>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <span class="doc-card-tag">Para la Alcaldesa</span>
+        <h4>Plan de gobierno · Alcaldía de Cali</h4>
+        <p>«Una Cali que funciona para todos.» 16 ejes, financiación y coalición de gobierno completos.</p>
+        <a class="btn-doc" href="assets/iris-maia-plan-gobierno-cali-2035.pdf" download><span class="doc-ic">📄</span><span>Descargar PDF</span></a>
+      </div>
+      <div class="doc-card">
+        <span class="doc-card-tag">Para la Presidenta</span>
+        <h4>Plan de gobierno · Presidencia</h4>
+        <p>20 capítulos, marco jurídico y fuentes de financiación para cada propuesta de la agenda nacional.</p>
+        <a class="btn-doc" href="assets/iris-maia-plan-gobierno-nacional-2050.pdf" download><span class="doc-ic">📄</span><span>Descargar PDF</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/irismaia-logo.png" alt="Iris Maia — logo"></div>
+        <p>Militante de la Alianza Verde. Página no oficial del partido</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook" title="Facebook">f</a>
+          <a href="#" aria-label="Instagram" title="Instagram">◎</a>
+          <a href="#" aria-label="TikTok" title="TikTok">♪</a>
+          <a href="#" aria-label="X / Twitter" title="X / Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h5>La ruta</h5>
+        <ul>
+          <li><a href="#concejo">Concejo de Cali · 2031</a></li>
+          <li><a href="#alcaldia">Alcaldía de Cali · 2035</a></li>
+          <li><a href="#congreso">Cámara / Senado · 2042–2046</a></li>
+          <li><a href="#presidencia">Presidencia · 2050</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li>✉️ hola@irismaiaduque.co</li>
+          <li>📍 Cali, Valle del Cauca</li>
+          <li><a href="#documentos">Documentos y planes de gobierno</a></li>
+          <li><a href="#top">Volver arriba ↑</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>© Iris Maia Duque · Alianza Verde. objeto de campaña, no oficial.</span>
+      <span>Los planes de gobierno de 2035 y 2050 se están actualizando de un movimiento propio anterior a la militancia verde de Iris Maia; el contenido programático se mantiene.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Friendly scroll-reveal (progressive enhancement, respects reduced motion)
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced && 'IntersectionObserver' in window){
+    const targets = document.querySelectorAll(
+      '.commit-card, .eje, .cap, .pillar, .role-card, .principle, .fact-card, .hero-card, .bloom-node, .fin-strip, .bloom-final, details.party, details.cat'
+    );
+    targets.forEach((el,i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (Math.min(i % 6, 5) * 0.05) + 's';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    targets.forEach(el => io.observe(el));
+  }
+
+  // Count-up animation for "EN CIFRAS" band
+  const counters = document.querySelectorAll('.cifra .num');
+  if(counters.length){
+    const animateCount = (el) => {
+      const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      const duration = 1100;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target);
+        if(p < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      };
+      if(prefersReduced){ el.textContent = target; return; }
+      requestAnimationFrame(step);
+    };
+    if('IntersectionObserver' in window){
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){ animateCount(entry.target); cio.unobserve(entry.target); }
+        });
+      }, {threshold:0.4});
+      counters.forEach(c => cio.observe(c));
+    } else {
+      counters.forEach(c => c.textContent = c.getAttribute('data-count'));
+    }
+  }
+</script>
+</body>
+</html>
